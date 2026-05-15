@@ -141,38 +141,110 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown('<div class="card"><h3>📋 Account Info</h3>', unsafe_allow_html=True)
-    tenure          = st.slider("Tenure (months)", 0, 72, 12)
-    contract        = st.selectbox("Contract Type", ["Month-to-month", "One year", "Two year"])
-    payment_method  = st.selectbox("Payment Method", [
-        "Bank transfer (automatic)",
-        "Credit card (automatic)",
-        "Electronic check",
-        "Mailed check"
-    ])
-    monthly_charges = st.slider("Monthly Charges ($)", 18, 120, 65)
-    total_charges   = st.slider("Total Charges ($)", 0, 9000, monthly_charges * tenure)
+    tenure = st.slider(
+        "Tenure (months)",
+        min_value=0, max_value=72, value=12,
+        help="Number of months the customer has been with the company."
+    )
+    contract = st.selectbox(
+        "Contract Type",
+        ["Month-to-month", "One year", "Two year"],
+        help="Length of the customer's service contract. Month-to-month has the highest churn risk."
+    )
+    payment_method = st.selectbox(
+        "Payment Method",
+        ["Bank transfer (automatic)", "Credit card (automatic)", "Electronic check", "Mailed check"],
+        help="How the customer pays their bill. Electronic check is associated with higher churn."
+    )
+    monthly_charges = st.slider(
+        "Monthly Charges ($)",
+        min_value=18, max_value=120, value=65,
+        help="Amount billed to the customer every month (USD)."
+    )
+    total_charges = st.slider(
+        "Total Charges ($)",
+        min_value=0, max_value=9000, value=monthly_charges * tenure,
+        help="Lifetime total amount charged (monthly × tenure). Updates automatically."
+    )
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="card"><h3>🌐 Internet Services</h3>', unsafe_allow_html=True)
-    internet_service  = st.selectbox("Internet Service", ["DSL", "Fiber optic", "No"])
-    online_security   = st.selectbox("Online Security", ["Yes", "No", "No internet service"])
-    online_backup     = st.selectbox("Online Backup", ["Yes", "No", "No internet service"])
-    device_protection = st.selectbox("Device Protection", ["Yes", "No", "No internet service"])
-    tech_support      = st.selectbox("Tech Support", ["Yes", "No", "No internet service"])
-    streaming_tv      = st.selectbox("Streaming TV", ["Yes", "No", "No internet service"])
-    streaming_movies  = st.selectbox("Streaming Movies", ["Yes", "No", "No internet service"])
+    st.caption("If the customer has no internet, choose 'No' – other options will auto‑adjust.")
+    internet_service = st.selectbox(
+        "Internet Service",
+        ["DSL", "Fiber optic", "No"],
+        help="Type of internet connection. Fiber optic often has higher monthly charges."
+    )
+    online_security = st.selectbox(
+        "Online Security",
+        ["Yes", "No", "No internet service"],
+        help="Yes = customer pays for an online security add‑on (antivirus/firewall)."
+    )
+    online_backup = st.selectbox(
+        "Online Backup",
+        ["Yes", "No", "No internet service"],
+        help="Yes = automatic cloud backup of customer data."
+    )
+    device_protection = st.selectbox(
+        "Device Protection",
+        ["Yes", "No", "No internet service"],
+        help="Yes = insurance / extended warranty for equipment."
+    )
+    tech_support = st.selectbox(
+        "Tech Support",
+        ["Yes", "No", "No internet service"],
+        help="Yes = 24/7 priority technical support."
+    )
+    streaming_tv = st.selectbox(
+        "Streaming TV",
+        ["Yes", "No", "No internet service"],
+        help="Yes = customer subscribes to streaming television service."
+    )
+    streaming_movies = st.selectbox(
+        "Streaming Movies",
+        ["Yes", "No", "No internet service"],
+        help="Yes = customer subscribes to streaming movie service."
+    )
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
-    st.markdown('<div class="card"><h3>👤 Demographics</h3>', unsafe_allow_html=True)
-    gender         = st.selectbox("Gender", ["Male", "Female"])
-    senior_citizen = st.selectbox("Senior Citizen", ["No", "Yes"])
-    partner        = st.selectbox("Has Partner?", ["Yes", "No"])
-    dependents     = st.selectbox("Has Dependents?", ["Yes", "No"])
-    phone_service  = st.selectbox("Phone Service", ["Yes", "No"])
-    multiple_lines = st.selectbox("Multiple Lines", ["Yes", "No", "No phone service"])
-    paperless_billing = st.selectbox("Paperless Billing", ["Yes", "No"])
+    st.markdown('<div class="card"><h3>👤 Demographics & Other Services</h3>', unsafe_allow_html=True)
+    gender = st.selectbox(
+        "Gender",
+        ["Male", "Female"],
+        help="Customer's self‑identified gender."
+    )
+    senior_citizen = st.selectbox(
+        "Senior Citizen",
+        ["No", "Yes"],
+        help="Yes if the customer is 65 years or older."
+    )
+    partner = st.selectbox(
+        "Has Partner?",
+        ["Yes", "No"],
+        help="Yes if the customer lives with a spouse or partner."
+    )
+    dependents = st.selectbox(
+        "Has Dependents?",
+        ["Yes", "No"],
+        help="Yes if the customer has children or other dependents."
+    )
+    phone_service = st.selectbox(
+        "Phone Service",
+        ["Yes", "No"],
+        help="Yes = customer has a landline phone service."
+    )
+    multiple_lines = st.selectbox(
+        "Multiple Lines",
+        ["Yes", "No", "No phone service"],
+        help="Yes = more than one phone line. Only relevant if Phone Service is Yes."
+    )
+    paperless_billing = st.selectbox(
+        "Paperless Billing",
+        ["Yes", "No"],
+        help="Yes = customer receives bills electronically (no paper mail)."
+    )
     st.markdown('</div>', unsafe_allow_html=True)
 
 
@@ -183,7 +255,7 @@ predict_btn = st.button("🔮 Predict Churn Risk", use_container_width=True, typ
 if predict_btn:
     # Encode inputs
     contract_map = {"Month-to-month": 0, "One year": 1, "Two year": 2}
-    payment_map  = {
+    payment_map = {
         "Bank transfer (automatic)": 0,
         "Credit card (automatic)": 1,
         "Electronic check": 2,
