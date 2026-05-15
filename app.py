@@ -248,7 +248,7 @@ if predict_btn:
             """, unsafe_allow_html=True)
 
         # Risk meter
-        st.progress(churn_prob)
+        st.progress(float(churn_prob))
 
     with res_col2:
         st.markdown('<div class="card"><h3>🔑 Key Risk Factors</h3>', unsafe_allow_html=True)
