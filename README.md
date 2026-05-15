@@ -67,17 +67,17 @@ churn-prediction/
     └── feature_importance.png
 ```
 🚀 How to Run Locally
-
+```
 Clone the repo:
 - git clone https://github.com/awaliahftr/churn-prediction.git
 - cd churn-prediction
 
 Install dependencies:
-```
+
 pip install -r requirements.txt
-```
+
 Run the Streamlit app:
-```
+
 streamlit run app.py
 ```
 📦 Dataset
