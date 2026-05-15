@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ─── Custom CSS for visible hints ─────────────────────────────
+# ─── Custom CSS for visible hints & styling ───────────────────
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
@@ -69,7 +69,7 @@ st.markdown("""
         border-radius: 8px;
         padding: 0.8rem;
         margin-bottom: 0.5rem;
-        color: #1a1a2e;
+        color: #1e293b;
     }
     .insight-box {
         background: #fff8e1;
@@ -78,25 +78,12 @@ st.markdown("""
         padding: 0.8rem;
         margin-top: 1rem;
         font-size: 0.9rem;
-        color: #1a1a2e;
+        color: #1e293b;
     }
+
     div[data-testid="stSidebar"] { background: #1a1a2e; }
     div[data-testid="stSidebar"] * { color: white !important; }
     label { font-weight: 600 !important; color: #1e293b !important; }
-
-    /* Force radio button labels to be visible */
-    .stRadio > div {
-        color: #1e293b !important;
-    }
-    .stRadio label {
-        color: #1e293b !important;
-    }
-    div[role="radiogroup"] label {
-        color: #1e293b !important;
-    }
-    .stRadio label span {
-        color: #1e293b !important;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -170,7 +157,8 @@ with tab1:
         ])
         st.markdown("<span class='hint'>🔹 Electronic check = highest churn</span>", unsafe_allow_html=True)
         
-        paperless_billing = st.radio("📧 Paperless Billing?", ["Yes", "No"], horizontal=True)
+        # RADIO REPLACED with SELECTBOX
+        paperless_billing = st.selectbox("📧 Paperless Billing?", ["Yes", "No"])
         st.markdown("<span class='hint'>🔹 Yes = bills by email only</span>", unsafe_allow_html=True)
         
         total_charges = monthly_charges * tenure
@@ -182,7 +170,6 @@ with tab2:
     internet_service = st.selectbox("🌐 Internet Service Type", ["DSL", "Fiber optic", "No"])
     st.markdown("<span class='hint'>🔹 Fiber optic is faster but often more expensive</span>", unsafe_allow_html=True)
     
-    # Two columns for internet add-ons
     col_a, col_b = st.columns(2)
     with col_a:
         online_security = st.selectbox("🛡️ Online Security", ["Yes", "No", "No internet service"])
@@ -207,20 +194,21 @@ with tab2:
 with tab3:
     col_x, col_y = st.columns(2)
     with col_x:
-        gender = st.radio("👤 Gender", ["Male", "Female"], horizontal=True)
+        # All radios replaced with selectboxes
+        gender = st.selectbox("👤 Gender", ["Male", "Female"])
         st.markdown("<span class='hint'>🔹 Male/Female</span>", unsafe_allow_html=True)
         
-        senior_citizen = st.radio("👵 Senior Citizen (65+)", ["No", "Yes"], horizontal=True)
+        senior_citizen = st.selectbox("👵 Senior Citizen (65+)", ["No", "Yes"])
         st.markdown("<span class='hint'>🔹 Yes = age 65 or older</span>", unsafe_allow_html=True)
         
-        partner = st.radio("💑 Has Partner?", ["Yes", "No"], horizontal=True)
+        partner = st.selectbox("💑 Has Partner?", ["Yes", "No"])
         st.markdown("<span class='hint'>🔹 Yes = lives with spouse/partner</span>", unsafe_allow_html=True)
         
-        dependents = st.radio("👶 Has Dependents?", ["Yes", "No"], horizontal=True)
+        dependents = st.selectbox("👶 Has Dependents?", ["Yes", "No"])
         st.markdown("<span class='hint'>🔹 Yes = children or dependents at home</span>", unsafe_allow_html=True)
         
     with col_y:
-        phone_service = st.radio("📞 Phone Service?", ["Yes", "No"], horizontal=True)
+        phone_service = st.selectbox("📞 Phone Service?", ["Yes", "No"])
         st.markdown("<span class='hint'>🔹 Yes = landline phone</span>", unsafe_allow_html=True)
         
         multiple_lines = st.selectbox("🔁 Multiple Lines", ["Yes", "No", "No phone service"])
@@ -231,7 +219,7 @@ st.markdown("---")
 predict_btn = st.button("🔮 Predict Churn Risk", use_container_width=True, type="primary")
 
 if predict_btn:
-    # Encode inputs (same as before)
+    # Encode inputs
     contract_map = {"Month-to-month":0, "One year":1, "Two year":2}
     payment_map = {"Bank transfer (automatic)":0, "Credit card (automatic)":1, "Electronic check":2, "Mailed check":3}
     binary_map = {"Yes":1, "No":0}
