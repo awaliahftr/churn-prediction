@@ -83,6 +83,20 @@ st.markdown("""
     div[data-testid="stSidebar"] { background: #1a1a2e; }
     div[data-testid="stSidebar"] * { color: white !important; }
     label { font-weight: 600 !important; color: #1e293b !important; }
+
+    /* Force radio button labels to be visible */
+    .stRadio > div {
+        color: #1e293b !important;
+    }
+    .stRadio label {
+        color: #1e293b !important;
+    }
+    div[role="radiogroup"] label {
+        color: #1e293b !important;
+    }
+    .stRadio label span {
+        color: #1e293b !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
