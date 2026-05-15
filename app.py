@@ -128,8 +128,8 @@ with st.sidebar:
     else:
         st.warning("⚠️ Using demo mode\nRun the notebook first to train & save the real model.")
     st.markdown("---")
-    st.markdown("**Built by:** Your Name")
-    st.markdown("**GitHub:** [View Repo](#)")
+    st.markdown("**Built by:** Awaliahftr")
+    st.markdown("**GitHub:** [View Repo](https://github.com/awaliahftr/churn-prediction)")
 
 
 # ─── Input Form ───────────────────────────────────────────────
@@ -316,6 +316,6 @@ st.markdown(
     "<p style='text-align:center; color:#aaa; font-size:0.85rem;'>"
     "Built with Python · XGBoost · Streamlit &nbsp;|&nbsp; "
     "Dataset: Telco Customer Churn (Kaggle) &nbsp;|&nbsp; "
-    "Portfolio Project by <strong>Your Name</strong></p>",
+    "Portfolio Project by <strong>Awaliahftr</strong></p>",
     unsafe_allow_html=True
 )
