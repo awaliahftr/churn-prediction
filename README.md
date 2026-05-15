@@ -53,6 +53,7 @@ A telecom company is losing customers, directly impacting revenue. This project:
 
 📁 Project Structure
 churn-prediction/
+
 ├── churn_analysis.ipynb    
 ├── app.py                  
 ├── requirements.txt        
