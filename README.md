@@ -73,13 +73,13 @@ Clone the repo:
 - cd churn-prediction
 
 Install dependencies:
-
+```
 pip install -r requirements.txt
-
+```
 Run the Streamlit app:
-
+```
 streamlit run app.py
-
+```
 📦 Dataset
 Source: [Telco Customer Churn — Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 Size: 7,043 customers, 21 features
