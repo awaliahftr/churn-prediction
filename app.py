@@ -69,6 +69,7 @@ st.markdown("""
         border-radius: 8px;
         padding: 0.8rem;
         margin-bottom: 0.5rem;
+        color: #1a1a2e;
     }
     .insight-box {
         background: #fff8e1;
@@ -77,6 +78,7 @@ st.markdown("""
         padding: 0.8rem;
         margin-top: 1rem;
         font-size: 0.9rem;
+        color: #1a1a2e;
     }
     div[data-testid="stSidebar"] { background: #1a1a2e; }
     div[data-testid="stSidebar"] * { color: white !important; }
