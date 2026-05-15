@@ -63,22 +63,21 @@ st.markdown("""
     .result-title { font-size: 1.8rem; font-weight: 700; margin: 0; }
     .result-sub   { font-size: 1rem; opacity: 0.9; }
 
+    .metric-box, .insight-box {
+        border-radius: 8px;
+        padding: 0.8rem;
+        margin-top: 0.5rem;      /* consistent top margin */
+        margin-bottom: 0.5rem;   /* consistent bottom margin */
+        font-size: 0.9rem;
+        color: #1e293b;
+    }
     .metric-box {
         background: #f0f4ff;
         border-left: 4px solid #3b82f6;
-        border-radius: 8px;
-        padding: 0.8rem;
-        margin-bottom: 0.5rem;
-        color: #1e293b;
     }
     .insight-box {
         background: #fff8e1;
         border-left: 4px solid #f59e0b;
-        border-radius: 8px;
-        padding: 0.8rem;
-        margin-top: 1rem;
-        font-size: 0.9rem;
-        color: #1e293b;
     }
 
     div[data-testid="stSidebar"] { background: #1a1a2e; }
