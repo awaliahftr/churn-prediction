@@ -8,6 +8,7 @@
 > Predicting which customers will churn using machine learning — with an interactive web app for business teams to use without any coding.
 
 🎯 Problem Statement
+
 A telecom company is losing customers, directly impacting revenue. This project:
 - Identifies the key drivers of customer churn
 - Builds a predictive ML model to flag at-risk customers
@@ -15,11 +16,12 @@ A telecom company is losing customers, directly impacting revenue. This project:
 
 
 📊 Key Findings
-📌 Overall churn rate is 26.5% — 1 in 4 customers leave
-📌 Month-to-month contract customers churn 3× more than annual subscribers
-📌 Customers with tenure under 12 months are the highest risk group
-📌 High monthly charges (>$65) correlate strongly with churn
-📌 Customers without tech support are 2× more likely to churn
+
+- 📌 Overall churn rate is 26.5% — 1 in 4 customers leave
+- 📌 Month-to-month contract customers churn 3× more than annual subscribers
+- 📌 Customers with tenure under 12 months are the highest risk group
+- 📌 High monthly charges (>$65) correlate strongly with churn
+- 📌 Customers without tech support are 2× more likely to churn
 
 🤖 Model Performance
 
@@ -64,14 +66,17 @@ churn-prediction/
     └── feature_importance.png
 
 🚀 How to Run Locally
+
 Clone the repo:
-git clone https://github.com/awaliahftr/churn-prediction.git
-cd churn-prediction
+- git clone https://github.com/awaliahftr/churn-prediction.git
+- cd churn-prediction
 
 Install dependencies:
+
 pip install -r requirements.txt
 
 Run the Streamlit app:
+
 streamlit run app.py
 
 📦 Dataset
