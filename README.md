@@ -52,11 +52,11 @@ A telecom company is losing customers, directly impacting revenue. This project:
 | Version Control | Git & GitHub |
 
 📁 Project Structure
+```
 churn-prediction/
-
-├── churn_analysis.ipynb    
-├── app.py                  
-├── requirements.txt        
+├── churn_analysis.ipynb    # Full EDA + ML analysis
+├── app.py                  # Streamlit prediction app
+├── requirements.txt        # Dependencies
 ├── model/
 │   ├── xgb_churn_model.pkl
 │   ├── scaler.pkl
@@ -65,7 +65,7 @@ churn-prediction/
     ├── churn_overview.png
     ├── roc_curve.png
     └── feature_importance.png
-
+```
 🚀 How to Run Locally
 
 Clone the repo:
