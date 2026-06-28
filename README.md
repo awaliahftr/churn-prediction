@@ -80,6 +80,9 @@ Run the Streamlit app:
 
 streamlit run app.py
 ```
+## 🚀 Live Demo
+[View Live App](https://awaliahftr-churn-prediction.streamlit.app/)
+
 📦 Dataset
 Source: [Telco Customer Churn — Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 Size: 7,043 customers, 21 features
